@@ -1,4 +1,4 @@
-console.log('lesson 2');
+console.log("lesson 2");
 
 // Lexical environment
 // http://jsflow.org/docs/lex-env/
@@ -20,9 +20,61 @@ console.log('lesson 2');
 // https://learn.javascript.ru/recursion
 // https://www.youtube.com/watch?v=Kuq6oIN3PH0
 
+// ====== Имитация ======
+// let globalScope = {
+//   outerScope: null, //Конечная область виддимости
+//   f: "Function",
+//   a: 10,
+// };
+
+// // Движок бежит по коду дважды. Первый раз об запоминает все var && function declaration
+// // и помещает их в scope
+
+// let a = 10;
+
+// function f() {
+//   let fScope = {
+//     outerScope: globalScope,
+//   };
+//   console.log(a);
+// }
+// f();
+
+let globalScope = {
+  outerScope: null, //Конечная область виддимости
+  f: "Function",
+};
+
+let a = 10;
+function f() {
+  let fScope = {
+    outerScope: globalScope,
+    r: "Function",
+    i: 40, //undefined => 20 => 40
+  };
+  console.log(a);
+  var i = 20;
+  function inner() {
+    let rScope = {
+      outerScope: fScope,
+    };
+    i += 20;
+    console.log(i);
+  }
+  inner();
+}
+f();
 
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
+
+function summ(a: number) {
+  return function (b: number) {
+    return a + b;
+  };
+}
+
+summ(3)(6);
 
 // Task 02
 // Реализовать функцию makeCounter которая работает следующим образом:
