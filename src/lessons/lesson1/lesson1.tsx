@@ -4,7 +4,7 @@ import CurrencyExchangeContainer from "../../containers/CurrencyExchangeContaine
 // Redux
 // https://tproger.ru/translations/redux-for-beginners/
 // https://monsterlessons.com/project/series/redux-js-dlya-nachinayushih
-// https://xsltdev.ru/react/redux/intro/
+// https://xsltdev.ru/react/redux/intro/ ==> not found
 
 // Typescript genetic
 // https://habr.com/ru/post/455473/
