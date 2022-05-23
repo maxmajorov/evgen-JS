@@ -15,6 +15,7 @@ function App() {
     <div className="container">
       <Lesson1 />
       <Lesson3 />
+      <hr />
       <Lesson4 />
     </div>
   );
