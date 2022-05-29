@@ -1,0 +1,41 @@
+<script src="./axios.js"></script>
+<script src="./api.js"></script>
+<script>
+
+
+
+    api.sendStudentsCountToItKamasutra(20)
+        .then(res => console.log(res));
+
+    const promises = [
+    api.getVacanciesCountFromMicrosoft()
+        .then(res => {console.log(res.vacancies); return res.vacancies} ),
+    api.getVacanciesCountFromGoogle()
+        .then(res => {console.log(res.vacancies); return res.vacancies})
+    ]    
+   
+    const allVacancies = Promise.all(promises)
+    allVacancies.then((response) => {
+        let allVac = response.reduce((a, b) => a + b)
+        console.log(allVac)
+        return allVac
+    }).then((vacancies) => api.sendStudentsCountToItKamasutra(vacancies).then(res => console.log(res)))
+
+
+    // Перепишем на async / await
+
+    async function setVacancies() {
+       try {
+            const {vacancies: ms_vac} = await api.getVacanciesCountFromMicrosoft()
+        const {vacancies: google_vac} = await api.getVacanciesCountFromGoogle()
+        // console.log(ms_vac, google_vac)
+     
+        api.sendStudentsCountToItKamasutra(ms_vac + google_vac)
+        .then(res => console.log(res));
+        }  catch (err) {console.log(err)}
+    }
+
+    setVacancies()
+  
+
+</script>

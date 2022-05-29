@@ -1,4 +1,4 @@
-console.log("lesson 4");
+// console.log("lesson 4");
 
 // http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D
 // https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
@@ -88,39 +88,39 @@ console.log("lesson 4");
 // Получите результаты работы промисов, объедините свойства объектов
 // и выведите в консоль {name, age, city}
 
-const promise1 = new Promise((res, rej) => {
-  setTimeout(
-    (response) => {
-      res ? res(response.name) : rej();
-    },
-    2000,
-    { name: "Anna" }
-  );
-});
+// const promise1 = new Promise((res, rej) => {
+//   setTimeout(
+//     (response) => {
+//       res ? res(response.name) : rej();
+//     },
+//     2000,
+//     { name: "Anna" }
+//   );
+// });
 
-const promise2 = new Promise((res, rej) => {
-  setTimeout(
-    (response) => {
-      res ? res(response.age) : rej();
-    },
-    3000,
-    { age: 16 }
-  );
-});
+// const promise2 = new Promise((res, rej) => {
+//   setTimeout(
+//     (response) => {
+//       res ? res(response.age) : rej();
+//     },
+//     3000,
+//     { age: 16 }
+//   );
+// });
 
-const promise3 = new Promise((res, rej) => {
-  setTimeout(
-    (response) => {
-      res ? res(response.city) : rej();
-    },
-    4000,
-    { city: "Minsk" }
-  );
-});
+// const promise3 = new Promise((res, rej) => {
+//   setTimeout(
+//     (response) => {
+//       res ? res(response.city) : rej();
+//     },
+//     4000,
+//     { city: "Minsk" }
+//   );
+// });
 
-Promise.all([promise1, promise2, promise3]).then((values) => {
-  console.log(values.join(" "));
-});
+// Promise.all([promise1, promise2, promise3]).then((values) => {
+//   console.log(values.join(" "));
+// });
 
 // **********************************************************************
 // Task 05

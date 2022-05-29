@@ -1,0 +1,112 @@
+<script>
+
+
+    // const prom = new Promise((resolve, reject) => 
+    //     resolve()     
+    // )
+    //     .then(data => alert('Resolve'))
+    //     .then(data => {
+    //         return new Promise((res, rej) => rej())
+    //     })
+    //     .catch(err => alert('Reject', err))
+
+    // new Promise((resolve, reject) => {
+    //     setTimeout((response) => {
+    //        return resolve ? resolve(response.data) : "Error"
+    //         }, 2000, {data: {name: 'Max', age: 32}}) 
+    // })
+    //     .then((response) => {
+    //         console.log(`My name is ${response.name}, ${response.age} years old`)
+    //     })
+
+        
+    // const prom2 = new Promise((resolve, reject) => {
+    //     setTimeout((response) => {
+    //        return resolve ? resolve(Math.random() * 10) : "Error"
+    //         }, 2000) 
+    // })
+
+    // prom2.then((response) => {
+    //         console.log(`Random number: ${response}`)
+    //     })
+    
+    // prom2.then((response) => {
+    //     console.log(`Random number: ${response}`)
+    // })
+    
+    // console.log('finish')
+
+
+    // function doAfter(ms) {
+    //     return new Promise((res, rej) => {
+    //         setTimeout(() => {
+    //             res ?  res(res(ms)) : 'error'
+    //         }, ms * 1000)
+    //     }).then((response) => console.log(`Done after ${response} seconds`))
+    // }
+
+    // const pr1 = doAfter(5)
+    // doAfter(10)
+
+    // Сработают все сразу
+    // pr1.then((response) => console.log(`Done after 5 sec`))        
+    // pr1.then((response) => console.log(`Done after 5 sec`))  
+    // pr1.then((response) => console.log(`Done after 5 sec`))  
+
+
+    // // Промис сработает после истечения времени установленного в setTimeout если оно больше того которое было передано функции doAfter
+    // setTimeout(() => {
+    //     pr1.then((response) => console.log(`Done after setTimeout sec`))  
+    // }, 7000)
+    // // В этом же случае если сремя меньше то выполнится после истечения времени переданного  функции doAfter
+    // setTimeout(() => {
+    //     pr1.then((response) => console.log(`Done after setTimeout sec`))  
+    // }, 2000)
+	
+    // new Promise((res, rej) => {
+    //     setTimeout((response) => {
+    //         let random = Math.ceil(Math.random() * 10)
+    //         random >= 6 ? res(response.data) : rej('random number less then 7')
+    //     }, 3000, {data: {name: 'Max', age: 32}})
+    // })
+    //     .catch(err => console.log("Error ==> ", err))      
+    //     .then((response) => {
+    //         console.log(response)
+    //         return response
+    //     })
+    //     .then((response) => {
+    //         // console.log(response.name)
+    //         return new Promise((res, rej) => {
+    //             let searchName = prompt('Check your name') 
+    //             response.name === searchName ? res(response.name) : rej(`User ${searchName} not found! Only find name ${response.name}`)
+    //         })
+    //     })    
+    //     .catch((err) => console.log("Name not found ==> ", err))
+    //     .then((name) => alert(name))
+
+
+    function getRandomNumberAfter(ms) {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                let randomNumber = Math.ceil(Math.random() * 10)
+                res ?  res({ms, randomNumber}) : rej('ERROR')
+            }, ms * 1000)
+        }).then((response) => {
+            console.log(`Get ${response.randomNumber} after ${response.ms} seconds`)
+            return response.randomNumber
+        })
+    }
+
+    // getRandomNumberAfter(2)
+    // getRandomNumberAfter(4)
+    // getRandomNumberAfter(6)
+
+    let promALL = [getRandomNumberAfter(2), getRandomNumberAfter(4), getRandomNumberAfter(6)]
+    const commonPromise = Promise.all(promALL)
+    commonPromise.then((response) => {
+        console.log("All promises done", response)
+        alert(`SUMM THIS NUMBERS = ${response.reduce((a, b) => a + b)}`)
+    })
+
+
+</script>

@@ -1,4 +1,4 @@
-console.log("lesson 3");
+// console.log("lesson 3");
 
 // Event loop
 // https://learn.javascript.ru/event-loop
@@ -46,57 +46,57 @@ console.log("lesson 3");
 
 // console.log("1", prom2);
 
-let prom3 = new Promise((resolve, reject) => {
-  // имитация запроса на сервер
-  setTimeout(
-    (response) => {
-      response.httpStatus >= 200 && response.httpStatus < 400
-        ? resolve(response.data) // принимает не более одного аргумента
-        : reject(response.error);
-    },
-    3000,
-    {
-      httpStatus: 404,
-      data: { userID: "asde2df3", userName: "Max", age: 32 },
-      error: "NOT FOUND",
-    }
-  );
-});
+// let prom3 = new Promise((resolve, reject) => {
+//   // имитация запроса на сервер
+//   setTimeout(
+//     (response) => {
+//       response.httpStatus >= 200 && response.httpStatus < 400
+//         ? resolve(response.data) // принимает не более одного аргумента
+//         : reject(response.error);
+//     },
+//     3000,
+//     {
+//       httpStatus: 404,
+//       data: { userID: "asde2df3", userName: "Max", age: 32 },
+//       error: "NOT FOUND",
+//     }
+//   );
+// });
 
-prom3
-  .then(
-    (res) => {
-      return new Promise((resolve, reject) => {
-        // имитация запроса на сервер
-        setTimeout(
-          (response) => {
-            response.httpStatus >= 200 && response.httpStatus < 400
-              ? resolve(response.data) // принимает не более одного аргумента
-              : reject(response.error);
-          },
-          3000,
-          {
-            httpStatus: 200,
-            data: { userID: "asde2df3", cash: 5000 },
-            error: "NOT FOUND",
-          }
-        );
-      });
-    },
-    (err) => {
-      console.log("err", err);
-    }
-  )
-  .then(
-    (res) => {
-      console.log("res3", res); // вернет undefined тк мы словили ошибку, иначе бы легло все
-    },
-    (err2) => err2
-  )
-  //   .then(null, (err3) => err3)
-  .catch((err) => err); //вместо последней заглушки (сининим)
+// prom3
+//   .then(
+//     (res) => {
+//       return new Promise((resolve, reject) => {
+//         // имитация запроса на сервер
+//         setTimeout(
+//           (response) => {
+//             response.httpStatus >= 200 && response.httpStatus < 400
+//               ? resolve(response.data) // принимает не более одного аргумента
+//               : reject(response.error);
+//           },
+//           3000,
+//           {
+//             httpStatus: 200,
+//             data: { userID: "asde2df3", cash: 5000 },
+//             error: "NOT FOUND",
+//           }
+//         );
+//       });
+//     },
+//     (err) => {
+//       console.log("err", err);
+//     }
+//   )
+//   .then(
+//     (res) => {
+//       console.log("res3", res); // вернет undefined тк мы словили ошибку, иначе бы легло все
+//     },
+//     (err2) => err2
+//   )
+//   //   .then(null, (err3) => err3)
+//   .catch((err) => err); //вместо последней заглушки (сининим)
 
-console.log("prom3", prom3);
+// console.log("prom3", prom3);
 
 // just a plug
 export default () => {};

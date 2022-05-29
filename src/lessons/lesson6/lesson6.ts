@@ -1,4 +1,4 @@
-console.log('Lesson 6');
+console.log("Lesson 6");
 
 // Class
 // https://learn.javascript.ru/classes
@@ -36,5 +36,4 @@ console.log('Lesson 6');
 // Определить функции переназначения марки и грузоподъемности.
 
 // just a plug
-export default () => {
-};
+export default () => {};
