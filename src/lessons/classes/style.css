@@ -1,0 +1,15 @@
+.click_btn {
+  height: 60px;
+  width: 60px;
+  background-color: blue;
+  color: white;
+}
+
+
+.multi_btn {
+  margin-top: 20px;
+  height: 80px;
+  width: 80px;
+  background-color: lightblue
+  
+}
