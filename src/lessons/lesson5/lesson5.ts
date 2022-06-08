@@ -57,8 +57,8 @@ let user_2 = {
   name: "Olga",
 };
 
-user_2.hi = user.sayHI.bind(user, 5, 10, 15, 20);
-user_2.hi();
+// user_2.hi = user.sayHI.bind(user, 5, 10, 15, 20);
+// user_2.hi();
 
 // Task 01
 // Дан объект someObj, реализуйте функцию greeting и присвойте ее ключу объекта с аналогичным именем.
